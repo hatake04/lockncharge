@@ -1,0 +1,32 @@
+.topbox{
+	-fx-alignment:center;
+	-fx-background-color:blue;
+	-fx-font-weight:bolder;
+}
+
+.centerbox{
+	-fx-alignment: center;
+	-fx-font-size: 3.5em;
+	-fx-text-alignment:left;
+	-fx-background-color:#ffd700;
+}
+
+.centerbox > *{
+
+	-fx-label-padding:3px 3px 3px 3px;
+	-fx-text-fill:blue;
+	}
+
+.rightbox{
+}
+
+.leftbox{
+}
+
+.bottombox{
+}
+.heading{
+	-fx-font-family: "Andale Mono";
+	-fx-font-size: 9em;
+	-fx-text-fill:#ffffff;
+	}
