@@ -1,34 +1,35 @@
-package lockncharge;
+package application;
 
 
-import java.time.Instant;
-import java.time.LocalTime;
-import java.util.Timer;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 
 
-public class Main {
-
-		public static void main(String[] args) throws Exception{
+public class Main extends Application 
+ {
+	@Override
+	public void start(Stage primaryStage) {
+		
+		try {
 			
-			//Gets access token
-			Token newToken = new Token();
-			System.out.println(newToken.getTokenExpiration());
-			System.out.println(newToken.getToken());
-			LockBays tower = new LockBays(newToken.getToken());
-			UserBay users = new UserBay(newToken.getToken(), tower.getUsers());
+			//Token newToken = new Token();
+			//LockBays tower = new LockBays(newToken.getToken());
+			//UserBay users = new UserBay(newToken.getToken(), tower.getUsers());
+			LocknChargeUI controller = new LocknChargeUI(primaryStage);
+			//Scheduler timer = new Scheduler(primaryStage);
+			//timer.start();
 			
-			
-			//Timer tokenTimer = new Timer();
-			//tokenTimer.schedule(new CountDown(tokenTimer, 600), 0, 1000);
-			//Timer timerRefresh = new Timer();
-			//timerRefresh.schedule(new CountDown(timerRefresh, 300), 0, 1000);
-			
-			
-			
-			
-			
-	
-			
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	
+
+	
 }
