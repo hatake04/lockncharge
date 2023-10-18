@@ -1,4 +1,5 @@
-package lockncharge;
+package application;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,8 +15,8 @@ public class LockResponse implements Callable<String> {
 	private URLConnection conn; //connection resources
 
 	/***
-	 * LockResponse construstor - Initialize the URLConnection, String and BufferedReader instance variables.
-	 * @param input is the URL connection to the API server where the response from/ 
+	 * LockResponse constructor - Initialize the URLConnection, String and BufferedReader instance variables.
+	 * @param input is the URL connection to the API server where the response from 
 	 */
 	public LockResponse(URLConnection input)//Constructor
 	{
@@ -41,6 +42,7 @@ public class LockResponse implements Callable<String> {
 		return reader;
 	}
 	
+	//GETTERS
 	public URLConnection getConn()
 	{
 		return conn;
