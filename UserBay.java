@@ -1,6 +1,6 @@
-package lockncharge;
+package application;
 
-import lockncharge.Connect.Conn;
+import application.Connect.Conn;
 
 public class UserBay {
 	
@@ -17,7 +17,7 @@ public class UserBay {
 		getUser(usersID);
 	}
 
-	private String getUser(String[] usersID) throws Exception
+	private void getUser(String[] usersID) throws Exception
 	{
 		
 		for(int i = 0; i < usersID.length; i++)
@@ -30,14 +30,11 @@ public class UserBay {
 				String[] userName = userNameJson.split(":");
 				String tempFullName = userName[1];
 				String fullName = tempFullName.substring(2,(tempFullName.length()-1));
-				users[i] = new User(fullName);
-				System.out.println(users[i].toString());
-				
+				users[i] = new User(fullName);				
 				
 			}
 			
 		}
-		return "";
 	}
 	
 	private void iniUserArray()
@@ -66,4 +63,6 @@ public class UserBay {
 		response = Conn.get(url + usersID[index],accessToken);
 		return response;
 	}
+
+	public User[] getUsers() {	return users;}
 }
