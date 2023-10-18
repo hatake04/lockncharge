@@ -1,5 +1,8 @@
-package lockncharge;
+package application;
 
+/**
+ * User class - Defines a user object with first name and last name as it properties. 
+ */
 public class User {
 	
 	private String firstName;
@@ -40,7 +43,10 @@ public class User {
 	
 	public String toString()
 	{
-		return firstName + " " + lastName;
+		if(!firstName.equals("") && !lastName.equals(""))
+			return firstName + " " + lastName;
+		else
+			return "Available";
 	}
 
 }
