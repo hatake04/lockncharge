@@ -1,6 +1,6 @@
-package lockncharge;
+package application;
 
-import java.util.Date;
+
 import java.util.Locale;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -9,13 +9,13 @@ import java.time.format.DateTimeFormatter;
 
 public class FormatToken {
 	
-	private String access_token;
-	private String expiration;
-	private String svr_Response;
+	private String access_token; //token received
+	private String expiration; //token expiration
+	private String svr_Response; //raw response from the server
 	
 	
 	/***
-	 * FormatToken constructor - 
+	 * FormatToken constructor - Initializes the svr_Response instance variable with the server response. Additionally, it extracts the access token value and the expiration from the server response
 	 * @param response
 	 * @param time
 	 */
@@ -30,9 +30,9 @@ public class FormatToken {
 	}
 	
 	/**
-	 * formatAccess method - 
-	 * @param parm
-	 * @return
+	 * formatAccess method - Eliminates the quotes in the json format response to get the actual string of the token
+	 * @param parm raw token
+	 * @return value of token
 	 */
 	public String formatAccess(String parm)
 	{
@@ -42,9 +42,9 @@ public class FormatToken {
 	}
 	
 	/***
-	 * formatExpiration method -
-	 * @param parm
-	 * @return
+	 * formatExpiration method - Gets the expiration value of the token from json
+	 * @param parm JSON object with attribute and value pair of the token expiration
+	 * @return epoch expiration time
 	 */
 	public String formatExpiration(String parm)
 	{
@@ -54,8 +54,8 @@ public class FormatToken {
 	}
 	
 	/***
-	 * getExpirationTime method -
-	 * @return
+	 * getExpirationTime method - Translate epoch time to month/day/year hour/minute/second format for better readability.
+	 * @return expiration date and time of the token
 	 */
 	public String getExpirationTime()
 	{
